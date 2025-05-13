@@ -1,0 +1,76 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+	<!-- Background -->
+	<rect width="800" height="600" fill="#f8f9fa" rx="10" ry="10"/>
+	
+	<!-- Title -->
+	<text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Architecture d'un Socket en Mémoire</text>
+	
+	<!-- OS Kernel Area -->
+	<rect x="100" y="80" width="600" height="400" fill="#e9ecef" stroke="#495057" stroke-width="2" rx="10" ry="10"/>
+	<text x="400" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Noyau du Système d'Exploitation</text>
+	
+	<!-- Socket Structure -->
+	<rect x="200" y="140" width="400" height="300" fill="#dee2e6" stroke="#495057" stroke-width="2" rx="10" ry="10"/>
+	<text x="400" y="170" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Structure Socket en Mémoire</text>
+	
+	<!-- Socket File Descriptor -->
+	<rect x="150" y="200" width="100" height="60" fill="#fff" stroke="#212529" stroke-width="2" rx="5" ry="5"/>
+	<text x="200" y="235" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">Descripteur</text>
+	<text x="200" y="255" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">de Socket</text>
+	
+	<!-- Arrow from FD to Socket -->
+	<line x1="250" y1="230" x2="300" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+	
+	<!-- Socket Metadata -->
+	<rect x="320" y="190" width="160" height="80" fill="#adb5bd" stroke="#212529" stroke-width="2" rx="5" ry="5"/>
+	<text x="400" y="220" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">Métadonnées Socket</text>
+	<text x="400" y="240" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">- Adresse IP</text>
+	<text x="400" y="260" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">- Numéro de Port</text>
+	
+	<!-- Send Buffer -->
+	<rect x="250" y="300" width="140" height="80" fill="#c8e6c9" stroke="#1b5e20" stroke-width="2" rx="5" ry="5"/>
+	<text x="320" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1b5e20">Tampon d'Envoi</text>
+	<text x="320" y="350" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1b5e20">(Send Buffer)</text>
+	<text x="320" y="370" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1b5e20">Données sortantes</text>
+	
+	<!-- Receive Buffer -->
+	<rect x="410" y="300" width="140" height="80" fill="#bbdefb" stroke="#0d47a1" stroke-width="2" rx="5" ry="5"/>
+	<text x="480" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0d47a1">Tampon de Réception</text>
+	<text x="480" y="350" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1">(Receive Buffer)</text>
+	<text x="480" y="370" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1">Données entrantes</text>
+	
+	<!-- Socket State -->
+	<rect x="320" y="400" width="160" height="30" fill="#ffecb3" stroke="#212529" stroke-width="2" rx="5" ry="5"/>
+	<text x="400" y="420" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">État de la Connection</text>
+	
+	<!-- Application Layer -->
+	<rect x="100" y="500" width="600" height="60" fill="#dcedc8" stroke="#558b2f" stroke-width="2" rx="10" ry="10"/>
+	<text x="400" y="535" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Couche Application (Programme Utilisateur)</text>
+	
+	<!-- Arrows -->
+	<defs>
+	  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+		<polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+	  </marker>
+	</defs>
+	
+	<!-- App to Kernel -->
+	<line x1="320" y1="500" x2="320" y2="450" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+	<text x="290" y="475" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="#333">send()</text>
+	
+	<!-- Kernel to App -->
+	<line x1="480" y1="450" x2="480" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+	<text x="490" y="475" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">recv()</text>
+	
+	<!-- Network connections -->
+	<rect x="20" y="250" width="60" height="100" fill="#f8bbd0" stroke="#880e4f" stroke-width="2" rx="5" ry="5"/>
+	<text x="50" y="300" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#880e4f" transform="rotate(-90 50,300)">RÉSEAU</text>
+	
+	<!-- Network to Kernel -->
+	<line x1="80" y1="270" x2="410" y2="320" stroke="#880e4f" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+	<text x="250" y="280" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#880e4f">Paquets entrants</text>
+	
+	<!-- Kernel to Network -->
+	<line x1="250" y1="340" x2="80" y2="330" stroke="#1b5e20" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+	<text x="180" y="360" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1b5e20">Paquets sortants</text>
+  </svg>
