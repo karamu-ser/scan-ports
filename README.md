@@ -28,3 +28,4 @@ g++ main.cpp
 ```bash
 ./a.out
 ```
+![socket](socket.png)
